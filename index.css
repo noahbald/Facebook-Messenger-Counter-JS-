@@ -1,0 +1,14 @@
+#drop_zone {
+    margin: auto;
+    height: 100px;
+    width: 300px;
+    background-color: #ccc;
+}
+
+#drop_zone.highlight, .highlight {
+    background-color: #eee;
+}
+
+.hidden {
+    display: none !important;
+}

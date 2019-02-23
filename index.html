@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Facebook Messenger Statistics</title>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="unwrapper.js"></script>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div id="intro panel">
+            <h1>
+                Facebook Messenger Statistics
+            </h1>
+            <h2>
+                Please upload messages.json
+            </h2>
+            <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)">
+                <form id="upload">
+                    <p>Drop File Here</p>
+                    <input class="upload" type="file" id="fileElem" multiple style="display: none;" />
+                    <label for="fileElem"><strong>Or Browse</strong></label>
+                    <p class="hidden error">Error!</p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
