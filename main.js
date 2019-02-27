@@ -1,5 +1,5 @@
 // Global data variable
-var data, message_types, people_data;
+var data, messageTypes, peopleData;
 
 function dropHandler(e)
 {
@@ -34,18 +34,32 @@ function dragLeaveHandler(e)
 function handleFile(f)
 {
     // Read file
-    console.log("loaded file ", f.name)
+    console.log("loaded file", f.name)
     var fileReader = new FileReader();
+    fileReader.onloadend = function(e)
+    {
+        handleData(fileReader);
+    }
     fileReader.readAsText(f);
-    // Revert page appearance
-    dragLeaveHandler(null);
+}
+
+function handleData(fr)
+{
     try {
         // parse JSON file to obj
-        data = JSON.parse(fileReader.result);
+        data = JSON.parse(fr.result);
+        console.log("JSON parse successful");
     } catch (e) {
         // do something
-        console.log("invalid JSON file")
+        console.log("JSON parse failed")
         return;
     }
     // process data
+    // Distribute message data
+    messageTypes = messageDistribution(data);
+
+    // Separate user data
+    peopleData = separateUsers(data);
+
+    console.log("Data processed");
 }
