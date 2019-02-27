@@ -102,10 +102,11 @@ function separateUsers(data)
 
     for (var user in data.participants)
     {
-        users[user.name] = [];
+        users[data.participants[user].name] = [];
     }
-    for (var message in data.messages)
+    for (var i in data.messages)
     {
+        var message = data.messages[i];
         if (!(message.sender_name in users))
         {
             users[message.sender_name] = [message];
@@ -115,6 +116,7 @@ function separateUsers(data)
             users[message.sender_name].push(message);
         }
     }
+    return users;
 }
 
 function wordExtract(contents)
