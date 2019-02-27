@@ -7,20 +7,21 @@ var REACTS = {"\u00f0\u009f\u0098\u008d": "love", "\u00f0\u009f\u0098\u0086": "l
 function messageDistribution(data)
 {
     // Distribute messages into categories
-    media_type = null;
-    messages = [];
-    media = [];
-    stickers = [];
-    nickname = [];
-    group_info = [];
-    reactions = [];
-    calls = [];
-    plans = [];
-    shares = [];
+    var media_type = null;
+    var media = [];
+    var messages = [];
+    var stickers = [];
+    var nickname = [];
+    var group_info = [];
+    var reactions = [];
+    var calls = [];
+    var plans = [];
+    var shares = [];
 
     // Go through each message and place it in it's respective categories
-    for (var i=0, message=data.messages[i]; i<data.messages.length(); i++)
+    for (var i=0; i<data.messages.length; i++)
     {
+        var message = data.messages[i];
         var flag = false;
         if ('reactions' in message)
         {
@@ -29,7 +30,7 @@ function messageDistribution(data)
         }
         for (var media_type in MEDIA)
         {
-            if ('media_type' in message)
+            if (MEDIA[media_type] in message)
             {
                 // If the message was found to be a media, categorise it as so
                 media.push(message);
