@@ -124,11 +124,11 @@ function wordExtract(contents)
     // Separate words in a string into a list, removing any unnexessary characters
     var output = contents.toLowerCase();
     // Remove special characters
-    for (var i=0; i<output.length(); i++)
+    for (var i=0; i<output.length; i++)
     {
         if (output.slice(i-2, i) === "\\u")
         {
-            output = output.slice(0, i-2).concat(output.slice(i+22, output.length()))
+            output = output.slice(0, i-2).concat(output.slice(i+22, output.length));
         }
     }
     // Remove non-valuable characters, ie digits and punctuation
@@ -140,6 +140,10 @@ function wordExtract(contents)
     // Remove empty strings
     output = output.filter(e => e !== "");
 
-    return output
+    return output;
+}
 
+function timestampToDatetime(timestamp)
+{
+    return new Date(timestamp);
 }
