@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Facebook Messenger Statistics</title>
+        <link rel="stylesheet" type="text/css" href="mockup.css">
+        <script type="text/javascript" src="mockup.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    </head>
+    <body>
+        <div class="background-top"></div>
+        <header>
+            <div class="dropdown_container">
+                <div class="button large" onclick="dropdownOnClick('type_list')">
+                    <p>Total</p>
+                </div>
+                <div id="type_list" class="dropdown hidden">
+                    <div class="dropdown_option"><p>Total</p></div>
+                    <div class="dropdown_option"><p>Averages</p></div>
+                </div>
+            </div>
+            <div class="dropdown_container">
+                <div class="button large" onclick="dropdownOnClick('who_list')">
+                    <p>Everyone</p>
+                </div>
+                <div id="who_list" class="dropdown hidden">
+                    <div class="dropdown_option"><p>Everyone</p></div>
+                </div>
+            </div>
+        </header>
+        <section id="file_select">
+
+        </section>
+        <section id="line_graph">
+            <canvas id="canvas" style="width:100%;height:calc(100vh - 25vw);margin-bottom:2.5vw"></canvas>
+            <div style="margin:auto;width:5vw;"><a href="#statistics"><div class="button next"></div></a></div>
+        </section>
+        <div>
+        <section id="statistics">
+            <div id="col_container">
+                <div class="left outer">
+                    <div class="left inner">
+                        <h1>Statistics:</h1>
+                        <p>Total Messages:</p>
+                        <p>Unique Words:</p>
+                        <p>Calls:</p>
+                        <p>Total Call Duration:</p>
+                        <p>Shares:</p>
+                        <p>Stickers:</p>
+                        <p>Reacts:</p>
+                        <p>&emsp;&lt;3</p>
+                        <p>&emsp;:D</p>
+                        <p>&emsp;:O</p>
+                        <p>&emsp;:'(</p>
+                        <p>&emsp;&gt;:(</p>
+                        <p>&emsp;good</p>
+                        <p>&emsp;bad</p>
+                    </div>
+                    <div class="right inner">
+                        <h1></h1>
+                        <p>3,648</p>
+                        <p>42,9634</p>
+                        <p>742</p>
+                        <p>1:44</p>
+                        <p>2</p>
+                        <p>76</p>
+                        <p>102</p>
+                        <p>23</p>
+                        <p>25</p>
+                        <p>16</p>
+                        <p>32</p>
+                        <p>4</p>
+                        <p>6</p>
+                        <p>12</p>
+                    </div>
+                </div>
+                <div class="right outer">
+                    <div class="left inner">
+                        <h1>&nbsp;</h1>
+                        <p>Media Sent:</p>
+                        <p>&emsp;Photos:</p>
+                        <p>&emsp;Videos:</p>
+                        <p>&emsp;Gifs:</p>
+                        <p>&emsp;Files:</p>
+                        <p>&emsp;Audio Files:</p>
+                    </div>
+                    <div class="right inner">
+                        <h1> </h1>
+                        <p>12</p>
+                        <p>5</p>
+                        <p>2</p>
+                        <p>4</p>
+                        <p>1</p>
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="height:calc(100vh - 38.98vw - 12.5vw);width100%;max-height:25vw;"></div>
+        <div style="margin:auto;width:5vw;"><a href="#bar_graph"><div class="button next"></div></a></div>
+        <section id="bar_graph">
+            <canvas id="canvas" style="width:100%;height:calc(100vh - 10vw);"></canvas>
+        </section>
+        <footer>
+            <ul>
+                <li><p>Privacy</p></li>
+                <li><p>About</p></li>
+            </ul>
+        </footer>
+    </body>
+</html>
