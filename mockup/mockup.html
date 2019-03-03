@@ -7,7 +7,7 @@
         <script type="text/javascript" src="mockup.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     </head>
-    <body>
+    <body class="">
         <div class="background-top"></div>
         <header>
             <div class="dropdown_container">
@@ -28,8 +28,17 @@
                 </div>
             </div>
         </header>
-        <section id="file_select">
-
+        <section id="file_select" class="display_none" style="z-index: 2;">
+            <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)">
+                <div class="rectangle">
+                    <form id="upload">
+                        <p>Drop File Here</p>
+                        <input class="upload" type="file" id="fileElem" multiple style="display: none;" />
+                        <label for="fileElem"><a style="font-size:1.33vw"><strong>Or Browse</strong><a></label>
+                        <p class="hidden error">Error!</p>
+                    </form>
+                </div>
+            </div>
         </section>
         <section id="line_graph">
             <canvas id="canvas" style="width:100%;height:calc(100vh - 25vw);margin-bottom:2.5vw"></canvas>
