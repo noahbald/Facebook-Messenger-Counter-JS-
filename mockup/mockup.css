@@ -157,6 +157,7 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: 0.2s;
 }
 
 #statistics h1 {
@@ -183,6 +184,9 @@ a {
     width: calc(100% - 5vw);
     height: calc(100% - 10vw);
     border-radius: 2.5vw;
+}
+#drop_zone.hover.rectangle {
+    border: 0.3125vw solid;
 }
 
 #col_container {
