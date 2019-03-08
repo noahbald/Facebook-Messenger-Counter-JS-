@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background-color: #09203f;
@@ -26,9 +30,12 @@ footer {
     align-items: center;
 }
 footer ul {
+    display: inline-flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: center;
+    align-items: center;
 }
 footer ul li {
     float: left;
@@ -37,13 +44,6 @@ footer ul li {
 footer ul li p, footer ul li a {
     font-size: 1vw;
     opacity: 0.8;
-}
-
-canvas {
-    background-color: #09203f;
-    border-radius: 2.5vw;
-    min-height: calc(100vw/3);
-    max-height: 66vw;
 }
 
 h1 {
@@ -57,6 +57,11 @@ a {
     text-decoration: none;
     color: #fefefe;
     cursor: pointer;
+}
+
+svg {
+    height: calc(100% - 5vw);
+    width: calc(100% - 5vw);
 }
 
 .hidden {
@@ -83,12 +88,14 @@ a {
     position: absolute;
     background-image: linear-gradient(#c471ed 0%, #f64f59 5vw, #f64f59);
     width: 27.5vw;
-    border-radius: 2.5vw;
     overflow: auto;
     z-index: 1;
     opacity: 1;
     transition: 0.2s;
     margin-top: 2.5vw;
+}
+.dropdown, .graph_zone {
+    border-radius: 2.5vw;
 }
 .dropdown_option {
     height: 5vw;
@@ -147,9 +154,10 @@ a {
 }
 
 .rectangle {
-    height: calc(100% - 10vw);
-    width: calc(100% - 10vw);
-    margin: 5vw auto 5vw auto;
+    position: relative;
+    height: calc(100% - 5vw);
+    width: calc(100% - 5vw);
+    margin: 2.5vw auto 0 auto;
     border: 0.15625vw solid;
     border-image-source: linear-gradient(#12c2e9 0, #c471ed 50%, #f64f59 100%);
     border-image-slice: 1;
@@ -160,11 +168,83 @@ a {
     transition: 0.2s;
 }
 
+.graph_zone {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: #09203f;
+}
+
+.yaxis {
+    height: calc(100vh - 30vw);
+    min-height: calc((100vw/3) - 5vw);
+    width: calc(2.5vw);
+    flex-direction: column;
+    margin: 2.65625vw auto 2.65625vw auto;
+}
+.xaxis {
+    height: 2.5vw;
+    width: calc(100% - 15vw);
+    flex-direction: row;
+    margin: auto 2.5vw auto 2.5vw;
+    align-items: center;
+}
+.yaxis, .xaxis {
+    font-size: 1vw;
+    text-align: center;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    z-index: 1;
+    position: absolute;
+}
+.rectangle .xaxis, .rectangle .yaxis {
+    height: 2.5vw;
+    min-height: inherit;
+    position: absolute;
+    vertical-align: middle;
+    margin: 0;
+    bottom: 5vw;
+    justify-content: flex-start;
+}
+.rectangle .xaxis li, .rectangle .yaxis li {
+    height: 2.5vw;
+    width: 2.5vw;
+    position: absolute;
+    display: inline-block;
+}
+.yaxis p, .xaxis p {
+    font-size: 1vw;
+    margin: 0;
+}
+
 #statistics h1 {
     font-size: 100%;
 }
 #statistics p {
     font-size: 66%;
+}
+
+#line_graph {
+    height: calc(100vh - 25vw);
+    min-height: calc(100vw/3);
+    margin-bottom: 2.5vw;
+}
+#line {
+    background-image: linear-gradient(#12c2e9 -2.5vw, #c471ed 50%, #f64f59 calc(100% + 2.5vw));
+    clip-path: url(#line_mask);
+}
+#bar {
+    background-image: linear-gradient(#12c2e9 -2.5vw, #c471ed 50%, #f64f59 calc(100% + 2.5vw));
+    clip-path: url(#bar_mask);
+}
+#statistics {
+    height: calc(100vh - 12.5vw);
+    min-height: calc(200vw/5);
+}
+#bar_graph {
+    height: calc(100vh - 10vw);
 }
 
 #file_select {
@@ -187,6 +267,11 @@ a {
 }
 #drop_zone.hover.rectangle {
     border: 0.3125vw solid;
+}
+#drop_zone.rectangle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #col_container {

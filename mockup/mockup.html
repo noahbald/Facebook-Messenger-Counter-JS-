@@ -5,11 +5,12 @@
         <title>Facebook Messenger Statistics</title>
         <link rel="stylesheet" type="text/css" href="mockup.css">
         <script type="text/javascript" src="mockup.js"></script>
+        <script type="text/javascript" src="graphs.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     </head>
-    <body class="">
+    <body class="" onload="onload();">
         <div class="background-top"></div>
-        <header>
+        <header id="header">
             <div class="dropdown_container">
                 <div class="button large" onclick="dropdownOnClick('type_list')">
                     <p>Total</p>
@@ -34,17 +35,29 @@
                     <form id="upload">
                         <p>Drop File Here</p>
                         <input class="upload" type="file" id="fileElem" multiple style="display: none;" />
-                        <label for="fileElem"><a style="font-size:1.33vw"><strong>Or Browse</strong><a></label>
+                        <label for="fileElem"><a style="font-size:1.33vw"><strong>Or Browse</strong></a></label>
                         <p class="hidden error">Error!</p>
                     </form>
                 </div>
             </div>
         </section>
         <section id="line_graph">
-            <canvas id="canvas" style="width:100%;height:calc(100vh - 25vw);margin-bottom:2.5vw"></canvas>
-            <div style="margin:auto;width:5vw;"><a href="#statistics"><div class="button next"></div></a></div>
+            <div class="graph_zone">
+                <ul class="yaxis">
+                </ul>
+                <div class="rectangle">
+                    <svg id="line" onresize="resizeLineGraph();">
+                        <defs>
+                            <clipPath id="line_mask">
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <ul class="xaxis">
+                </ul>
+            </div>
         </section>
-        <div>
+        <div style="margin:auto;width:5vw;"><a href="#statistics"><div class="button next"></div></a></div>
         <section id="statistics">
             <div id="col_container">
                 <div class="left outer">
@@ -105,14 +118,27 @@
                 </div>
             </div>
         </section>
-        <div style="height:calc(100vh - 38.98vw - 12.5vw);width100%;max-height:25vw;"></div>
         <div style="margin:auto;width:5vw;"><a href="#bar_graph"><div class="button next"></div></a></div>
         <section id="bar_graph">
-            <canvas id="canvas" style="width:100%;height:calc(100vh - 10vw);"></canvas>
+            <div class="graph_zone">
+                <div class="rectangle">
+                    <ul class="xaxis" style="width:calc(100% - 5vw);bottom:5vw;">
+                    </ul>
+                    <ul class="yaxis" style="width:calc(100% - 5vw);top:5vw;">
+                    </ul>
+                    <svg id="bar" onresize="resizeBarGraph();">
+                        <defs>
+                            <clipPath id="bar_mask">
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
         </section>
         <footer>
             <ul>
                 <li><p>Privacy</p></li>
+                <li><div style="margin:auto;width:5vw;transform:rotate(180deg);"><a href="#header"><div class="button next"></div></a></div></li>
                 <li><p>About</p></li>
             </ul>
         </footer>
