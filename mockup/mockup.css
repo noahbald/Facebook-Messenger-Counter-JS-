@@ -134,12 +134,6 @@ svg {
 .button:active {
     background-image: linear-gradient(rgba(196, 113, 237, 0.8), rgba(246, 79, 89, 0.8));
 }
-.button.large {
-    height: 5vw;
-    width: 27.5vw;
-    margin-right: 5vw;
-    border-radius: 2.5vw;
-}
 .button.next {
     background-image: linear-gradient(rgba(196, 113, 237, 0.8), rgba(246, 79, 89, 0.8));
     -webkit-mask-image: url(icons/baseline-keyboard_arrow_down-24px.svg);
@@ -208,7 +202,7 @@ svg {
     bottom: 5vw;
     justify-content: flex-start;
 }
-.rectangle .xaxis li, .rectangle .yaxis li {
+.rectangle .xaxis li, .rectangle.yaxis li {
     height: 2.5vw;
     width: 2.5vw;
     position: absolute;

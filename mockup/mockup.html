@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Facebook Messenger Statistics</title>
-        <link rel="stylesheet" type="text/css" href="mockup.css">
+        <link rel="stylesheet" type="text/css" href="mockup2.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="mockup.js"></script>
         <script type="text/javascript" src="graphs.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
@@ -11,31 +12,34 @@
     <body class="" onload="onload();">
         <div class="background-top"></div>
         <header id="header">
-            <div class="dropdown_container">
-                <div class="button large" onclick="dropdownOnClick('type_list')">
-                    <p>Total</p>
+            <div style="position: absolute;">
+                <div class="dropdown_container" style="margin-right: 8px;">
+                    <div class="button">
+                        <p>Total</p>
+                    </div>
+                    <div class="dropdown hidden">
+                        <div class="dropdown_option selected"><p>Total</p></div>
+                        <div class="dropdown_option"><p>Averages</p></div>
+                    </div>
                 </div>
-                <div id="type_list" class="dropdown hidden">
-                    <div class="dropdown_option"><p>Total</p></div>
-                    <div class="dropdown_option"><p>Averages</p></div>
-                </div>
-            </div>
-            <div class="dropdown_container">
-                <div class="button large" onclick="dropdownOnClick('who_list')">
-                    <p>Everyone</p>
-                </div>
-                <div id="who_list" class="dropdown hidden">
-                    <div class="dropdown_option"><p>Everyone</p></div>
+                <div class="dropdown_container">
+                    <div class="button">
+                        <p>Everyone</p>
+                    </div>
+                    <div class="dropdown hidden">
+                        <div class="dropdown_option selected"><p>Everyone</p></div>
+                    </div>
                 </div>
             </div>
         </header>
-        <section id="file_select" class="display_none" style="z-index: 2;">
-            <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)">
+        <section id="file_select" class="display_none" style="z-index: 3;">
+            <div class="graph_zone" id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)">
                 <div class="rectangle">
                     <form id="upload">
-                        <p>Drop File Here</p>
+                        <p><strong>Drop File Here</strong></p>
                         <input class="upload" type="file" id="fileElem" multiple style="display: none;" />
-                        <label for="fileElem"><a style="font-size:1.33vw"><strong>Or Browse</strong></a></label>
+                        <label for="fileElem"><div class="button text"><p>Or Browse</p></div></label>
+                        <br/><progress value="33" max="100"/>
                         <p class="hidden error">Error!</p>
                     </form>
                 </div>
@@ -46,6 +50,17 @@
                 <ul class="yaxis">
                 </ul>
                 <div class="rectangle">
+                    <div class="dropdown_container">
+                        <div class="button outline float">
+                            <p>Months</p>
+                        </div>
+                        <div class="dropdown hidden">
+                            <div class="dropdown_option"><p>Years</p></div>
+                            <div class="dropdown_option selected"><p>Months</p></div>
+                            <div class="dropdown_option"><p>Weekdays</p></div>
+                            <div class="dropdown_option"><p>Hours</p></div>
+                        </div>
+                    </div>
                     <svg id="line" onresize="resizeLineGraph();">
                         <defs>
                             <clipPath id="line_mask">
@@ -57,7 +72,7 @@
                 </ul>
             </div>
         </section>
-        <div style="margin:auto;width:5vw;"><a href="#statistics"><div class="button next"></div></a></div>
+        <div style="margin:32px auto 32px auto;width:64px;height:64px;"><a href="#statistics"><div class="button next"></div></a></div>
         <section id="statistics">
             <div id="col_container">
                 <div class="left outer">
@@ -118,10 +133,18 @@
                 </div>
             </div>
         </section>
-        <div style="margin:auto;width:5vw;"><a href="#bar_graph"><div class="button next"></div></a></div>
+        <div style="margin:32px auto 32px auto;width:64px;height:64px;"><a href="#bar_graph"><div class="button next"></div></a></div>
         <section id="bar_graph">
             <div class="graph_zone">
                 <div class="rectangle">
+                    <div class="dropdown_container">
+                        <div class="button outline float">
+                            <p>Most Common Words</p>
+                        </div>
+                        <div class="dropdown hidden">
+                            <div class="dropdown_option selected"><p>Most Common Words</p></div>
+                        </div>
+                    </div>
                     <ul class="xaxis" style="width:calc(100% - 5vw);bottom:5vw;">
                     </ul>
                     <ul class="yaxis" style="width:calc(100% - 5vw);top:5vw;">
