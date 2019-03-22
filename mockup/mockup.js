@@ -2,6 +2,14 @@ var dropdown_list = null;
 var self_clicked = true;
 
 $(document).ready(function(){
+  $(".dropdown_option").click(function(){
+      dropdown_optionOnClick($(this)[0]);
+  })
+  $(".dropdown_container .button").click(function(){
+      dropdownOnClick($(this)[0]);
+  })
+});
+
 function dropdownOnClick(self)
 {
     others = document.getElementsByClassName("dropdown");
